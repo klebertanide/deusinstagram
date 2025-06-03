@@ -2,6 +2,6 @@ services:
   - type: cron
     name: deus-te-enviou-isso
     env: python
-    schedule: "@daily"
+    schedule: "0 9 * * *"
     buildCommand: "pip install -r requirements.txt"
     startCommand: "python main.py"
