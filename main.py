@@ -2,6 +2,8 @@ from insta_utils import postar_no_instagram
 import os
 import csv
 
+LEGENDA_PADRAO = "Deus te enviou isso! 🙏 Mande para alguém que também precisa ler isso! Siga @DeusTeEnviouIsso #Fé #Motivação #Deus"
+
 def proxima_imagem():
     imagens = sorted([
         f for f in os.listdir("imagens")
@@ -28,9 +30,8 @@ def main():
         print("Nenhuma imagem nova para postar.")
         return
 
-    legenda = os.path.splitext(imagem)[0].replace("-", " ").replace("_", " ")
     caminho = os.path.join("imagens", imagem)
-    sucesso = postar_no_instagram(caminho, legenda)
+    sucesso = postar_no_instagram(caminho, LEGENDA_PADRAO)
     if sucesso:
         registrar_postagem(imagem)
         print(f"Postado: {imagem}")
