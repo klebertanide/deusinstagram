@@ -1,7 +1,23 @@
 services:
   - type: cron
-    name: deus-te-enviou-isso
-    env: python
-    schedule: "0 9 * * *"
-    buildCommand: "pip install -r requirements.txt"
+    name: DeusTeEnviouIsso
+    runtime: python
+    buildCommand: ""
     startCommand: "python main.py"
+    envVars:
+      - key: IG_USER_ID
+        sync: false
+      - key: IG_ACCESS_TOKEN
+        sync: false
+      - key: GITHUB_USER
+        sync: false
+      - key: GITHUB_REPO
+        sync: false
+
+    schedules:
+      - name: Postar6hManha
+        cron: "0 9 * * *"      # 6h da manhã (UTC+0 → BRT+3)
+        path: /
+      - name: Postar18hTarde
+        cron: "0 21 * * *"     # 6h da tarde (UTC+0 → BRT+3)
+        path: /
