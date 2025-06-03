@@ -1,0 +1,7 @@
+services:
+  - type: cron
+    name: deus-te-enviou-isso
+    env: python
+    schedule: "@daily"
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
