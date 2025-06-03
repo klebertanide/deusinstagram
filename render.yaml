@@ -1,21 +1,5 @@
 services:
   - type: cron
-    name: deus-te-enviou-isso
-    env: python
-    schedule: "0 9 * * *"
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python main.py"
-    envVars:
-      - key: IG_ACCESS_TOKEN
-        sync: false
-      - key: IG_USER_ID
-        sync: false
-      - key: GITHUB_USER
-        sync: false
-      - key: GITHUB_REPO
-        sync: false
-
-  - type: cron
     name: deus-te-enviou-isso-18h
     env: python
     schedule: "0 21 * * *"
